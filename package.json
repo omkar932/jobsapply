@@ -7,7 +7,7 @@
     "dev:worker": "ts-node-dev src/worker/index.ts",
     "scrape": "ts-node-dev src/worker/scrape.ts",
     "scrape:ind":"ts-node-dev src/worker/indexIndeed.ts",
-    "build": "tsc && next build src/frontend",
+    "build": "tsc",
     "start:frontend": "next start src/frontend",
     "start:backend": "node dist/backend/index.js",
     "start:worker": "node dist/worker/index.js"

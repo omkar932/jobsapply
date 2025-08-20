@@ -1,0 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PROFILE = void 0;
+exports.PROFILE = {
+    resume: `Your resume text. Proficient in React, TypeScript, Node.js, MongoDB.`,
+    skills: ["React", "TypeScript", "Node.js", "MongoDB", "GraphQL"],
+    preferredLocations: ["Mumbai", "Pune", "Remote"],
+    salaryMin: 1500000, // 15 LPA
+};
