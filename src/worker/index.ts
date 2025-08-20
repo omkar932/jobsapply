@@ -55,8 +55,8 @@ async function updateResume(page: any, resumePath: string) {
 
 async function scrapeNaukri() {
   const browser = await chromium.launch({
-    headless: false, // Set to false for debugging
-    slowMo: 1000, // Add delay between actions for debugging
+    headless: true, // Set to false for debugging
+    args: ["--disable-blink-features=AutomationControlled"], // optional: reduces bot detection
   });
   const context = await browser.newContext({
     userAgent:
@@ -448,7 +448,7 @@ async function scrapeNaukri() {
       console.error("Could not save screenshot:", screenshotError);
     }
   } finally {
-    await browser.close();
+    // await browser.close();
   }
 }
 
@@ -459,7 +459,7 @@ async function start() {
     }
     await mongoose.connect(MONGO_URI);
     console.log("✅ Worker connected to MongoDB");
-    schedule.scheduleJob("0 9 * * *", scrapeNaukri); // 9 AM daily
+    schedule.scheduleJob("0 */2 * * *", scrapeNaukri);
     console.log("✅ Scheduled job scraper at 9:00 AM IST");
   } catch (error) {
     console.error("❌ Failed to start worker:", error);
